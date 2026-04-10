@@ -110,7 +110,8 @@
   --shadow-lg: 0px 2px 0px 0px rgba(0,0,0,0.05), 0px 4px 6px -1px rgba(0,0,0,0.05);
   --shadow-xl: 0px 2px 0px 0px rgba(0,0,0,0.05), 0px 8px 10px -1px rgba(0,0,0,0.05);
   --shadow-2xl: 0px 2px 0px 0px rgba(0,0,0,0.05);
-  --tracking-normal: 0em;
+  --whatsapp-green: #25D366;
+  --whatsapp-green-hover: #20BA5A;
   --spacing: 0.25rem;
   --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
   --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
@@ -172,29 +173,61 @@
 }
 
 .liquid-glass {
-  background: rgba(255,255,255,0.01);
-  background-blend-mode: luminosity;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
-  box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.015);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 
+    inset 0 1px 1px rgba(255,255,255,0.05),
+    0 8px 32px rgba(0,0,0,0.15);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
+
+.liquid-glass:hover {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 
+    inset 0 1px 1px rgba(255,255,255,0.08),
+    0 12px 40px rgba(0,0,0,0.2);
+}
+
 .liquid-glass::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 1.4px;
-  background: linear-gradient(180deg,
-    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
-    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+  padding: 1px;
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.2) 0%, 
+    rgba(255,255,255,0) 40%, 
+    rgba(255,255,255,0) 60%, 
+    rgba(255,255,255,0.1) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+}
+
+.glass-glow {
+  position: relative;
+}
+
+.glass-glow::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, var(--whatsapp-green), transparent, var(--whatsapp-green));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(8px);
+}
+
+.glass-glow:hover::after {
+  opacity: 0.15;
 }
 
 @keyframes fade-rise {

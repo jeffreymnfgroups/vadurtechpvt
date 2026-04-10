@@ -21,15 +21,17 @@ export default function App() {
       <TooltipProvider>
         <div className="min-h-screen" style={{ background: 'hsl(201, 100%, 13%)' }}>
           <Navbar />
-          <HeroSection />
-          <TrustBar />
-          <ServicesSection />
-          <PricingSection />
-          <WhyUsSection />
-          <ProcessSection />
-          <TestimonialsSection />
-          <FAQSection />
-          <ContactSection />
+          <main>
+            <HeroSection />
+            <TrustBar />
+            <ServicesSection />
+            <PricingSection />
+            <WhyUsSection />
+            <ProcessSection />
+            <TestimonialsSection />
+            <FAQSection />
+            <ContactSection />
+          </main>
           <WhatsAppButton />
           <Footer />
         </div>
