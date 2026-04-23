@@ -24,12 +24,19 @@ export default function App() {
           <main>
             <HeroSection />
             <TrustBar />
+            <div className="section-divider" />
             <ServicesSection />
+            <div className="section-divider" />
             <PricingSection />
+            <div className="section-divider" />
             <WhyUsSection />
+            <div className="section-divider" />
             <ProcessSection />
+            <div className="section-divider" />
             <TestimonialsSection />
+            <div className="section-divider" />
             <FAQSection />
+            <div className="section-divider" />
             <ContactSection />
           </main>
           <WhatsAppButton />
